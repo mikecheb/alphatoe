@@ -12,8 +12,7 @@ var BUILD_DIR = path.resolve(__dirname, 'build');
 
 var config = {
     entry: {
-        js: APP_DIR + '/index.js',
-        css: STYLE_DIR + '/index.css'
+        js: APP_DIR + '/index.js'
     },
     output: {
         path: BUILD_DIR,
