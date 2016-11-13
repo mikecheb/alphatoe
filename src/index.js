@@ -15,7 +15,7 @@ cells.forEach((el, ind, arr) => {
 });
 
 // Rerender on store changes.
-store.subscribe(() => {
+store.subscribe("move", () => {
     for (let i = 0; i < 3; i++){
         for (let j = 0; j < 3; j++){
             const cell = cells[i * 3 + j];

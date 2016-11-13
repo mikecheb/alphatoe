@@ -7,22 +7,27 @@ class Store {
         // TODO(mike): Consider putting all state variables under this.state.
         this.board = new Board();
 
-        this.callbacks = [];
+        this.callbacks = {};
     }
 
     move(...args){
         // TODO(mike): Handle illegal moves.
         this.board = this.board.move(...args);
-        this.publish();
+        this.publish("move");
     }
 
-    subscribe(callback){
-        // TODO(mike): Allow for unsubscribe?
-        this.callbacks.push(callback);
+    subscribe(eventName, callback){
+        // TODO(mike): Allow for unsubscribe.
+        if (!this.callbacks[eventName]){
+            this.callbacks[eventName] = [];
+        }
+        this.callbacks[eventName].push(callback);
     }
 
-    publish(){
-        this.callbacks.forEach(callback => callback.call())
+    publish(eventName){
+        if (this.callbacks[eventName]){
+            this.callbacks[eventName].forEach(callback => callback.call());
+        }
     }
 }
 
