@@ -1,4 +1,5 @@
 import Board from './Board.js';
+import RandomPlayer from './Players/RandomPlayer.js';
 
 class Store {
     constructor(){
@@ -6,6 +7,9 @@ class Store {
         // TODO(mike): Consider adding argument to rehydrate from saved state.
         // TODO(mike): Consider putting all state variables under this.state.
         this.board = new Board();
+        this.player = new RandomPlayer();
+
+        this.humanTurn = true;
 
         this.callbacks = {};
     }
@@ -14,6 +18,11 @@ class Store {
         // TODO(mike): Handle illegal moves.
         this.board = this.board.move(...args);
         this.publish("move");
+        this.humanTurn = !this.humanTurn;
+        if (!this.humanTurn){
+            const nextMove = this.player.move(this.board);
+            this.move(false, nextMove.row, nextMove.column);
+        }
     }
 
     subscribe(eventName, callback){
