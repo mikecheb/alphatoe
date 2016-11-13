@@ -1,8 +1,9 @@
 {
-	"folders":
-	[
-		{
-			"path": "."
-		}
-	]
+    "folders": [{
+        "path": ".",
+        "folder_exclude_patterns": ["build", "node_modules"]
+    }],
+    "settings": {
+        "ensure_newline_at_eof_on_save": true
+    }
 }
