@@ -1,12 +1,20 @@
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HTMLWebpackPlugin = require('html-webpack-plugin');
 
+
 var APP_DIR = path.resolve(__dirname, 'src');
+var STYLE_DIR = path.resolve(__dirname, 'styles')
+var TEMPLATE_DIR = path.resolve(__dirname, 'templates');
+
 var BUILD_DIR = path.resolve(__dirname, 'build');
 
 var config = {
-    entry: [APP_DIR + '/index.js'],
+    entry: {
+        js: APP_DIR + '/index.js',
+        css: STYLE_DIR + '/index.css'
+    },
     output: {
         path: BUILD_DIR,
         filename: 'app.js'
@@ -18,14 +26,15 @@ var config = {
             loader: 'babel'
         }, {
             test: /\.css/,
-            include: APP_DIR,
-            loader: 'style-loader!css-loader'
+            include: STYLE_DIR,
+            loader: ExtractTextPlugin.extract('css')
         }]
     },
     plugins: [
         new HTMLWebpackPlugin({
-            template: 'src/index.html'
-        })
+            template: TEMPLATE_DIR + '/index.html'
+        }),
+        new ExtractTextPlugin('styles.css')
     ]
 };
 
