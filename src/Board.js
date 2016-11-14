@@ -12,6 +12,7 @@ class Board {
             }
         }
 
+        this.moveCount = 0;
         this.winner = this.computeWinner();
     }
 
@@ -54,7 +55,6 @@ class Board {
     computeWinner(){
         // Store the sum of each row for quick win tallying.
         let winner;
-        let cellCount = 0;
         const rowTallies = [{sum: 0}, {sum: 0}, {sum: 0}];
         const colTallies = [{sum: 0}, {sum: 0}, {sum: 0}];
         const diaTallies = [{sum: 0}, {sum: 0}];
@@ -63,7 +63,7 @@ class Board {
                 const cellContent = this.state[i][j];
                 if (cellContent === undefined)
                     continue;
-                cellCount++;
+                this.moveCount++;
 
                 const cellTallies = [];
                 cellTallies.push(rowTallies[i]);
@@ -90,7 +90,7 @@ class Board {
         }
 
         // If we found no winner, the game is either a tie or still in progress.
-        return cellCount === 9 ? null : undefined;
+        return this.moveCount === 9 ? null : undefined;
     }
 }
 

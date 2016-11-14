@@ -1,4 +1,5 @@
 import Board from './Board.js';
+import GosuPlayer from './Players/GosuPlayer.js';
 import RandomPlayer from './Players/RandomPlayer.js';
 
 class Store {
@@ -7,12 +8,23 @@ class Store {
         // TODO(mike): Consider adding argument to rehydrate from saved state.
         // TODO(mike): Consider putting all state variables under this.state.
         this.board = new Board();
+
+        this.hardMode = false;
         this.player = new RandomPlayer();
 
         this.computerFirst = false;
         this.humanTurn = true;
 
         this.callbacks = {};
+    }
+
+    setHardMode(value){
+        this.hardMode = value;
+        if (this.hardMode){
+            this.player = new GosuPlayer();
+        } else {
+            this.player = new RandomPlayer();
+        }
     }
 
     // TODO(mike): Consider warning the player before a the reset.

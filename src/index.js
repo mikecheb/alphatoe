@@ -14,12 +14,16 @@ cells.forEach((el, ind, arr) => {
     });
 });
 
-document.getElementById("resetButton").addEventListener("click", e => {
-    store.reset();
+document.getElementById("hardModeInput").addEventListener("change", e => {
+    store.setHardMode(e.target.checked);
 });
 
 document.getElementById("computerFirstInput").addEventListener("change", e => {
     store.setComputerFirst(e.target.checked);
+});
+
+document.getElementById("resetButton").addEventListener("click", e => {
+    store.reset();
 });
 
 // Rerender on store changes.
