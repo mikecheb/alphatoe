@@ -4,6 +4,9 @@ import * as Utilities from '../Utilities.js';
 /**
  * This player never loses. It follows the strategy described by Newell and
  * Simon in 1972. See https://en.wikipedia.org/wiki/Tic-tac-toe#Strategy.
+ *
+ * TODO(mike): I kind of wish I had just gone with minimax, as it's a little
+ * easier to reason about.
  */
 class GosuPlayer extends Player {
     constructor(){
