@@ -31,6 +31,21 @@ class Board {
         return this.state[row][column] === undefined;
     }
 
+    getLegalMoves(){
+        const moves = [];
+        for (let i = 0; i < 3; i++){
+            for (let j = 0; j < 3; j++){
+                if (this.isLegalMove(i, j)){
+                    moves.push({
+                        row: i,
+                        column: j
+                    });
+                }
+            }
+        }
+        return moves;
+    }
+
     /**
      * Right now, this returns undefined if the game is in progress, null if the
      * game is tied, true if the human won, and false if the computer won.
