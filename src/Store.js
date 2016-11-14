@@ -14,12 +14,20 @@ class Store {
         this.callbacks = {};
     }
 
-    move(...args){
+    move(player, row, column){
         // TODO(mike): Handle illegal moves.
-        this.board = this.board.move(...args);
+        if (this.board.winner !== undefined ||
+                !this.board.isLegalMove(row, column)){
+            return;
+        }
+
+        this.board = this.board.move(player, row, column);
         this.publish("move");
         this.humanTurn = !this.humanTurn;
-        if (!this.humanTurn){
+
+        if (this.board.winner !== undefined){
+            this.publish("complete");
+        } else if (!this.humanTurn){
             const nextMove = this.player.move(this.board);
             this.move(false, nextMove.row, nextMove.column);
         }

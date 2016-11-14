@@ -34,3 +34,7 @@ store.subscribe("move", () => {
         }
     }
 });
+
+store.subscribe("complete", () => {
+    console.log(`won by ${store.board.winner}`)
+});
