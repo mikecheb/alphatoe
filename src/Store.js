@@ -9,9 +9,16 @@ class Store {
         this.board = new Board();
         this.player = new RandomPlayer();
 
+        this.computerFirst = false;
         this.humanTurn = true;
 
         this.callbacks = {};
+    }
+
+    // TODO(mike): Consider warning the player before a the reset.
+    setComputerFirst(value){
+        this.computerFirst = value;
+        this.reset();
     }
 
     move(player, row, column){
@@ -30,16 +37,24 @@ class Store {
         if (this.board.winner !== undefined){
             this.publish("complete");
         } else if (!this.humanTurn){
-            const nextMove = this.player.move(this.board);
-            this.move(false, nextMove.row, nextMove.column);
+            this.moveAI();
         }
+    }
 
+    // TODO(mike): Come up with a better name for this.
+    moveAI(){
+        const nextMove = this.player.move(this.board);
+        this.move(false, nextMove.row, nextMove.column);
     }
 
     reset(){
         this.board = new Board();
-        this.humanTurn = true;
-        this.publish("move");
+        this.humanTurn = !this.computerFirst;
+        if (this.computerFirst){
+            this.moveAI();
+        } else {
+            this.publish("move");
+        }
     }
 
     subscribe(eventName, callback){

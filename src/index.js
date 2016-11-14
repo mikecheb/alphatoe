@@ -18,6 +18,10 @@ document.getElementById("resetButton").addEventListener("click", e => {
     store.reset();
 });
 
+document.getElementById("computerFirstInput").addEventListener("change", e => {
+    store.setComputerFirst(e.target.checked);
+});
+
 // Rerender on store changes.
 store.subscribe("move", () => {
     for (let i = 0; i < 3; i++){
