@@ -5,13 +5,17 @@ import Store from './Store.js';
 const store = new Store();
 
 // Inform the store of the player's intention to move if they click a cell.
-const cells = document.querySelectorAll('td');
+const cells = document.querySelectorAll("td");
 cells.forEach((el, ind, arr) => {
     const row = Math.floor(ind / 3);
     const col = ind % 3;
     el.addEventListener("click", e => {
         store.move(true, row, col);
     });
+});
+
+document.getElementById("resetButton").addEventListener("click", e => {
+    store.reset();
 });
 
 // Rerender on store changes.

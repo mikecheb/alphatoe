@@ -15,9 +15,11 @@ class Store {
     }
 
     move(player, row, column){
-        // TODO(mike): Handle illegal moves.
+        // Prevent a move if the game is over, the cell is already occupied, or
+        // it's not this player's turn.
         if (this.board.winner !== undefined ||
-                !this.board.isLegalMove(row, column)){
+                !this.board.isLegalMove(row, column) ||
+                player !== this.humanTurn){
             return;
         }
 
@@ -31,6 +33,13 @@ class Store {
             const nextMove = this.player.move(this.board);
             this.move(false, nextMove.row, nextMove.column);
         }
+
+    }
+
+    reset(){
+        this.board = new Board();
+        this.humanTurn = true;
+        this.publish("move");
     }
 
     subscribe(eventName, callback){
