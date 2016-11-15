@@ -1,7 +1,0 @@
-.DS_Store
-
-build
-*.sublime-workspace
-
-npm-debug.log
-node_modules
