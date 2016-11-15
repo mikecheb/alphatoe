@@ -1,8 +1,14 @@
 import styles from '../styles/index.css';
 
+import Alphy from './Alphy.js';
 import Store from './Store.js';
 
 const store = new Store();
+const alphy = new Alphy({
+    store,
+    chatEl: document.getElementById('chat'),
+    alphyEl: document.getElementById('alphy')
+});
 
 // Inform the store of the player's intention to move if they click a cell.
 const cells = document.querySelectorAll("#board .cell");
@@ -30,7 +36,6 @@ store.subscribe("move", () => {
     for (let i = 0; i < 3; i++){
         for (let j = 0; j < 3; j++){
             const cell = cells[i * 3 + j];
-            // TODO(mike): We'll probably want to use classes instead.
             switch (store.board.state[i][j]){
                 case true:
                     cell.className = "cell o";
@@ -44,8 +49,4 @@ store.subscribe("move", () => {
             }
         }
     }
-});
-
-store.subscribe("complete", () => {
-    console.log(`won by ${store.board.winner}`)
 });

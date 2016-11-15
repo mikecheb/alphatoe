@@ -38,6 +38,7 @@ class Store {
         } else {
             this.player = new RandomPlayer();
         }
+        this.publish("toggleDifficulty");
     }
 
     /**
@@ -98,6 +99,7 @@ class Store {
         this.board = new Board();
         this.humanTurn = !this.computerFirst;
         this.publish("move");
+        this.publish("reset");
 
         // The AI takes a move if the user has allowed the computer to go first.
         if (this.computerFirst){

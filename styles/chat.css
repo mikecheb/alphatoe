@@ -1,0 +1,81 @@
+/**
+ * Adapted from https: //codepen.io/samuelkraft/pen/Farhl/.
+ */
+#chat {
+    position: absolute;
+    left: 95px;
+    bottom: 82px;
+    width: max-content;
+    max-width: 350px;
+
+    padding: 10px 20px;
+    background: #E5E5EA;
+    border-radius: 25px;
+    color: black;
+
+    font-family: "Helvetica Neue";
+    font-size: 20px;
+    text-align: left;
+    word-wrap: break-word;
+
+    /* Start hidden. */
+    opacity: 0;
+}
+
+#chat:before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: -7px;
+    height: 20px;
+    border-left: 20px solid #E5E5EA;
+    border-bottom-right-radius: 16px 14px;
+    -webkit-transform: translate(0, -2px);
+}
+
+#chat:after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 4px;
+    width: 26px;
+    height: 20px;
+    background: #EEEEEE;
+    border-bottom-right-radius: 10px;
+    -webkit-transform: translate(-30px, -2px);
+}
+
+.visible {
+    animation-name: fadein;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.hidden {
+    animation-name: fadeout;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+        visibility: visible;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
