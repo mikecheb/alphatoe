@@ -1,0 +1,38 @@
+#board {
+    /* TODO(mike):; Make responsive. */
+    width: 500px;
+    height: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    /* The color of the lines. */
+    background-color: #CCCCCC;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cell {
+    /* Make a square. */
+    display: inline-block;
+    width: 32%;
+    padding-bottom: 32%;
+
+    /* The color of the tiles. */
+    background-color: white;
+
+    background-position: center;
+    background-size: 85%;
+    background-repeat: no-repeat;
+}
+
+.cell.o {
+    background-image: url("./o.svg");
+}
+.cell.x {
+    background-image: url("./x.svg");
+}

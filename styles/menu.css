@@ -1,0 +1,19 @@
+.menu {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.player {
+    text-align: center;
+}
+
+.player-icon {
+    margin: 0 20px;
+    font-size: 70px;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+}

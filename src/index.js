@@ -5,7 +5,7 @@ import Store from './Store.js';
 const store = new Store();
 
 // Inform the store of the player's intention to move if they click a cell.
-const cells = document.querySelectorAll("td");
+const cells = document.querySelectorAll("#board .cell");
 cells.forEach((el, ind, arr) => {
     const row = Math.floor(ind / 3);
     const col = ind % 3;
@@ -14,14 +14,13 @@ cells.forEach((el, ind, arr) => {
     });
 });
 
+// Listen to buttons and toggles.
 document.getElementById("hardModeInput").addEventListener("change", e => {
     store.setHardMode(e.target.checked);
 });
-
 document.getElementById("computerFirstInput").addEventListener("change", e => {
     store.setComputerFirst(e.target.checked);
 });
-
 document.getElementById("resetButton").addEventListener("click", e => {
     store.reset();
 });
@@ -34,13 +33,13 @@ store.subscribe("move", () => {
             // TODO(mike): We'll probably want to use classes instead.
             switch (store.board.state[i][j]){
                 case true:
-                    cell.textContent = "O";
+                    cell.className = "cell o";
                     break;
                 case false:
-                    cell.textContent = "X";
+                    cell.className = "cell x";
                     break;
                 case undefined:
-                    cell.textContent = "";
+                    cell.className = "cell";
                     break;
             }
         }

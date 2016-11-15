@@ -1,29 +1,55 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TODO</title>
+        <title>AlphaToe</title>
         <meta charset="utf-8">
     </head>
     <body>
-        <input id="hardModeInput" type="checkbox">
-        <input id="computerFirstInput" type="checkbox">
-        <button id="resetButton">Reset game</button>
-        <table id="board">
-            <tr>
-                <td>
-                <td>
-                <td>
-            </tr>
-            <tr>
-                <td>
-                <td>
-                <td>
-            </tr>
-            <tr>
-                <td>
-                <td>
-                <td>
-            </tr>
-        </table>
+        <div class="wrapper">
+            <div id="board">
+                <div class="row">
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                </div>
+                <div class="row">
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                </div>
+                <div class="row">
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                </div>
+            </div>
+            <div class="menu">
+                <div class="player">
+                    <div class="player-icon">
+                        😃
+                    </div>
+                    <div class="player-name">Alphy</div>
+                    <div class="player-tile">❌</div>
+                </div>
+                <div class="controls">
+                    <label>
+                        Let Alphy go first
+                        <input id="computerFirstInput" type="checkbox">
+                    </label>
+                    <label>
+                        Make Alphy smart
+                        <input id="hardModeInput" type="checkbox">
+                    </label>
+                    <button id="resetButton">Reset game</button>
+                </div>
+                <div class="player">
+                    <div class="player-icon">
+                        👤
+                    </div>
+                    <div class="player-name">You</div>
+                    <div class="player-tile">⭕</div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
