@@ -136,7 +136,13 @@ class GosuPlayer extends Player {
                         aiMove.column === playerMove.column;
                 }) === -1;
             });
-            threateningMoves = threateningMoves.concat(viableMoves);
+
+            /**
+             * We checked the opponent's next move and it was safe, so push this
+             * move onto the list.
+             */
+            if (viableMoves.length !== 0)
+                threateningMoves.push(moves[i]);
         }
 
         // If we found any moves matching the above criteria, return them.
