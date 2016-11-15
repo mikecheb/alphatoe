@@ -4,6 +4,7 @@
  * TODO(mike): Things can still be a little wonky when messages come in rapidly.
  * TODO(mike): The transition between emoji is a little too abrupt.
  * TODO(mike): Rethink the way we loop through animations and queue messages.
+ * TODO(mike): On small screens, the chat bubble can still cover the board.
  */
 import Personality from './Data/Personality.js';
 import * as Utilities from './Utilities.js';

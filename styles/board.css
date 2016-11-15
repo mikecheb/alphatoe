@@ -40,3 +40,10 @@
     cursor: default;
     background-image: url("./x.svg");
 }
+
+@media (max-width: 540px) {
+    #board {
+        width: 250px;
+        height: 250px;
+    }
+}

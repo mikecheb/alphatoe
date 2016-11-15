@@ -5,6 +5,9 @@
     position: absolute;
     left: 95px;
     bottom: 82px;
+
+    /* Some platforms, e.g., iOS, don't yet support max-content. */
+    width: 350%;
     width: max-content;
     max-width: 350px;
 
@@ -85,5 +88,17 @@
     to {
         opacity: 0;
         visibility: hidden;
+    }
+}
+
+@media (max-width: 540px) {
+    #chat {
+        left: 60px;
+        bottom: 60px;
+
+        font-size: 14px;
+        padding: 7px 14px;
+
+        max-width: 200px;
     }
 }
