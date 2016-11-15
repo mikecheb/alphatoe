@@ -7,6 +7,7 @@ class Store {
         // TODO(mike): Consider a convention for private variables.
         // TODO(mike): Consider adding argument to rehydrate from saved state.
         // TODO(mike): Consider putting all state variables under this.state.
+        // TODO(mike): Consider a better coding for the player enum.
         this.board = new Board();
 
         // Variables related to the current difficulty setting.

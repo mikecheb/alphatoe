@@ -1,8 +1,11 @@
+/**
+ * TODO(mike): Let outsiders read the state only; give them a method to call
+ * instead of letting them access it directly.
+ */
 class Board {
     constructor(state){
         // Right now, undefined means empty, true is the human player, and false
         // is the robot player.
-        // Right now, we assume valid input.
         this.state = [new Array(3), new Array(3), new Array(3)];
         if (state){
             for (let i = 0; i < 3; i++){
@@ -16,8 +19,15 @@ class Board {
         this.winner = this.computeWinner();
     }
 
+    /**
+     * Returns a new board. The state of the new board is the state of the
+     * current board plus the given move. Returning a new board is useful when
+     * we're doing lookahead.
+     */
     move(player, row, column){
-        // TODO Should we spin this iterator out into something? applyToBoard.
+        // TODO(mike): We currently assume valid input, relying on the caller
+        // to check if a move is legitimate.
+        // TODO(mike): We can spin out board iteration logic.
         const newState = [new Array(3), new Array(3), new Array(3)];
         for (let i = 0; i < 3; i++){
             for (let j = 0; j < 3; j++){
@@ -28,10 +38,16 @@ class Board {
         return new Board(newState);
     }
 
+    /**
+     * Returns true if the given tile is occupied, or false otherwise.
+     */
     isLegalMove(row, column){
         return this.state[row][column] === undefined;
     }
 
+    /**
+     * Returns every tile that isn't occupied.
+     */
     getLegalMoves(){
         const moves = [];
         for (let i = 0; i < 3; i++){
