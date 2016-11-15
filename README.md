@@ -8,6 +8,9 @@ Deliberately built with as few libraries as possible.
  * Make sure you have all the peer dependencies
  * `npm run build`
 
+## Running locally
+ * Serve the files in the `build/` directory. E.g., `cd build/ && python -m SimpleHTTPServer`
+
 ## To-do list
 - [ ] Show the user which row/column/diagonal is the winner
 - [ ] Add a delay to make it seem like Alphy is thinking
