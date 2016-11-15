@@ -150,21 +150,22 @@ class GosuPlayer extends Player {
     /**
      * Step 5: Play the center. If it's the first move of the game, the corner
      * gives a non-perfect player more chances to make mistakes. Since we know
-     * the human player might not be perfect, we take the corner on the first
-     * move.
+     * the human player might not be perfect, we also have a chance of taking
+     * a corner on the first move.
      *
      * TODO(mike): Give this function a more accurate name.
      */
     findCenterMoves(board, moves){
+        // The center move, if it's legal, or an empty array.
+        let moveOptions = moves.filter(move => {
+            return move.row === 1 && move.column === 1;
+        });
+
         if (board.moveCount === 0){
             // We lean on Step 7 logic here.
-            return this.findCornerMoves(board, moves);
-        } else {
-            // Return the center move, if it's legal, or an empty array.
-            return moves.filter(move => {
-                return move.row === 1 && move.column === 1;
-            });
+            moveOptions = moveOptions.concat(this.findCornerMoves(board, moves));
         }
+        return moveOptions;
     }
 
     /**
