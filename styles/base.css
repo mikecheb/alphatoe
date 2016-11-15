@@ -15,9 +15,11 @@ html, body {
 }
 
 body {
-    background-color: #EEEEEE;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    background-color: white;
+    font-family: 'Rubik', sans-serif;
 }

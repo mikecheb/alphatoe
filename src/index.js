@@ -33,6 +33,8 @@ document.getElementById("resetButton").addEventListener("click", e => {
 
 // Rerender on store changes.
 store.subscribe("move", () => {
+    // TODO(mike): When the game is over, add a class to to prevent the cursor
+    // from being a pointer.
     for (let i = 0; i < 3; i++){
         for (let j = 0; j < 3; j++){
             const cell = cells[i * 3 + j];

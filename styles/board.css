@@ -8,7 +8,7 @@
     justify-content: space-between;
 
     /* The color of the lines. */
-    background-color: #CCCCCC;
+    background-color: #039BE5;
 }
 
 .row {
@@ -23,7 +23,7 @@
     padding-bottom: 32%;
 
     /* The color of the tiles. */
-    background-color: white;
+    background-color: #81D4FA;
 
     background-position: center;
     background-size: 85%;

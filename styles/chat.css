@@ -13,6 +13,8 @@
     border-radius: 25px;
     color: black;
 
+    z-index: 3;
+
     font-family: "Helvetica Neue";
     font-size: 20px;
     text-align: left;
@@ -40,7 +42,13 @@
     left: 4px;
     width: 26px;
     height: 20px;
-    background: #EEEEEE;
+
+    /**
+     * TODO(mike): This needs to be the same as the background color, so move it
+     * to a variable.
+     */
+    background: white;
+
     border-bottom-right-radius: 10px;
     -webkit-transform: translate(-30px, -2px);
 }

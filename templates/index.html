@@ -3,6 +3,7 @@
     <head>
         <title>AlphaToe</title>
         <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
     </head>
     <body>
         <div class="wrapper">
@@ -34,14 +35,20 @@
                     <div class="player-tile">❌</div>
                 </div>
                 <div class="controls">
-                    <label>
+                    <div class="control">
                         Let Alphy go first
-                        <input id="computerFirstInput" type="checkbox">
-                    </label>
-                    <label>
+                        <div class="toggle">
+                            <input id="computerFirstInput" type="checkbox">
+                            <label for="computerFirstInput"></label>
+                        </div>
+                    </div>
+                    <div class="control">
                         Make Alphy smart
-                        <input id="hardModeInput" type="checkbox">
-                    </label>
+                        <div class="toggle">
+                            <input id="hardModeInput" type="checkbox">
+                            <label for="hardModeInput"></label>
+                        </div>
+                    </div>
                     <button id="resetButton">Reset game</button>
                 </div>
                 <div class="player">
