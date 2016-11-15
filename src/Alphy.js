@@ -49,7 +49,7 @@ class Alphy {
         // HACK(mike): Rethink the whole message loop. This is unreliable; if a
         // second message comes in right after this one, opacity will still be
         // 0 even though we are animating.
-        if (opacity !== "0" && opacity !== "1"){
+        if (opacity >= 0.1 && opacity <= 0.9){
             // We're currently animating, so let onAnimationEnd handle it.
             return;
         }
